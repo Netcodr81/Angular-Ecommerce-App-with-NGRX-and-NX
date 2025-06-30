@@ -1,0 +1,20 @@
+<aside>
+  <article class="space-y-4">
+    <div class="relative">
+      <div class="p-8 bg-gray-50 rounded-lg" #imageContainer>
+        <a href="#" class="block">
+          <img (mousemove)="handleImageChange()" (mouseout)="handleMouseOut()" [src]="currentImage"
+            class="w-full h-auto max-h-96 object-contain mx-auto" />
+        </a>
+      </div>
+    </div>
+    <div class="flex justify-center space-x-2 overflow-x-auto p-2">
+      <div *ngFor="let image of images; let i = index"
+        class="flex-shrink-0 cursor-pointer p-1 border-2 rounded-lg transition-colors hover:border-blue-500"
+        [class.border-blue-500]="i === currentImageIndex" [class.border-gray-200]="i !== currentImageIndex"
+        (click)="changeImage(i)">
+        <img [src]="image" class="w-16 h-16 object-cover rounded" />
+      </div>
+    </div>
+  </article>
+</aside>
